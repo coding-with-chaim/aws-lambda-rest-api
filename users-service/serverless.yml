@@ -1,4 +1,4 @@
-service: cars-rest-api
+service: users-service
 frameworkVersion: "2"
 
 provider:
@@ -16,15 +16,15 @@ functions:
       - http: any {proxy+}
 resources:
   Resources:
-    carsTable:
+    usersTable:
       Type: AWS::DynamoDB::Table
       Properties:
-        TableName: carsTable
+        TableName: usersTable
         AttributeDefinitions:
-          - AttributeName: id
+          - AttributeName: username
             AttributeType: S
         KeySchema:
-          - AttributeName: id
+          - AttributeName: username
             KeyType: HASH
         ProvisionedThroughput:
           ReadCapacityUnits: 1
